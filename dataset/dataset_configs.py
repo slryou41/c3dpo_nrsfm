@@ -57,7 +57,7 @@ MODEL_MD5 = {
 }
 
 # list of root folders containing the dataset images
-IMAGE_ROOTS = {}
+IMAGE_ROOTS = {'discovered_h36m': ['', '']}
 
 
 # ----- connectivity patterns for visualizing the stick-men
@@ -71,6 +71,7 @@ STICKS = {
              [11, 12], [12, 13], [8, 7],
              [7, 0], [1, 0], [1, 2],
              [2, 3], [0, 4], [4, 5], [5, 6]],
+    'discovered_h36m': [[1,7], [1, 4], [7,8], [8,6], [9,0], [1,5], [5,3], [7,9]],
     'cub_birds': [[1, 5], [5, 4], [4, 9],
                   [9, 0], [0, 13], [0, 12],
                   [0, 8], [12, 13], [1, 14],

@@ -128,12 +128,24 @@ def show_projections(p,
                         continue
                 else:
                     linestyle = '-'
-
-                plt.plot(p_[0, stick], p_[1, stick], linestyle,
-                         color=linecol, linewidth=stickwidth, zorder=1)
+                
+                if im is not None:
+                    _x = (p_[0, stick] + 1) / 2.0 * 1000
+                    _y = (p_[1, stick] + 1) / 2.0 * 1000
+                    plt.plot(_x, _y, linestyle,
+                             color=linecol, linewidth=stickwidth, zorder=1)
+                else:
+                    plt.plot(p_[0, stick], p_[1, stick], linestyle,
+                             color=linecol, linewidth=stickwidth, zorder=1)
 
     for p_, marker, msz in zip(p, markers, markersizes):
-        plt.scatter(p_[0, okp], p_[1, okp], msz, pid[okp],
+        
+        if im is not None:
+            _x = (p_[0, okp] + 1) / 2.0 * 1000
+            _y = (p_[1, okp] + 1) / 2.0 * 1000
+        else:
+            _x = p_[0, okp]; _y = p_[1, okp]
+        plt.scatter(_x, _y, msz, pid[okp],
                     cmap=cmap__, linewidths=2, marker=marker, zorder=2,
                     vmin=0., vmax=1.)
         if plot_point_order:
